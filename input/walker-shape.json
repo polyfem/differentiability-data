@@ -64,7 +64,7 @@
     "contact": {
         "enabled": true,
         "friction_coefficient": 0.8,
-        "dhat": 1e-4,
+        "dhat": 0.0001,
         "use_convergent_formulation": true
     },
     "space": {
@@ -81,15 +81,18 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT", "Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "contact": {
-            "barrier_stiffness": 1e5,
+            "barrier_stiffness": 100000.0,
             "friction_iterations": 1
         },
         "nonlinear": {
             "max_iterations": 1500,
-            "grad_norm": 1e-8,
             "solver": [
                 {
                     "type": "Newton"
@@ -107,7 +110,22 @@
             "Newton": {
                 "use_psd_projection": false,
                 "use_psd_projection_in_regularized": false
+            },
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1.0000000000000001e-11,
+            "grad_norm_tol": 1e-09,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-07
             }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "boundary_conditions": {
@@ -229,7 +247,7 @@
         {
             "id": 1,
             "type": "NeoHookean",
-            "E": 1e5,
+            "E": 100000.0,
             "nu": 0.35,
             "rho": 1000
         }

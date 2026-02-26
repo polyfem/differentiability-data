@@ -4,7 +4,7 @@
             "mesh": "../periodic105.msh",
             "n_refs": 0,
             "surface_selection": {
-                "threshold": 1e-6
+                "threshold": 1e-06
             }
         }
     ],
@@ -22,23 +22,54 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLLT","Eigen::CholmodSupernodalLLT"]
+            "solver": [
+                "Eigen::PardisoLLT",
+                "Eigen::CholmodSupernodalLLT"
+            ]
         },
         "adjoint_linear": {
-            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "nonlinear": {
-            "grad_norm": 1e-9
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-09,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-06
+            }
         },
         "contact": {
             "barrier_stiffness": 1
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "boundary_conditions": {
         "periodic_boundary": {
             "enabled": true,
-            "linear_displacement_offset": [[0, 0],[0, -0.3]],
-            "fixed_macro_strain": [3]
+            "linear_displacement_offset": [
+                [
+                    0,
+                    0
+                ],
+                [
+                    0,
+                    -0.3
+                ]
+            ],
+            "fixed_macro_strain": [
+                3
+            ]
         }
     },
     "output": {
@@ -53,7 +84,7 @@
     },
     "materials": {
         "type": "NeoHookean",
-        "E": 1e3,
+        "E": 1000.0,
         "nu": 0.5
     }
 }

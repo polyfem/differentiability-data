@@ -28,7 +28,7 @@
             "state": 0,
             "static_objective": {
                 "type": "log_contact_force_norm",
-                "dhat": 1e-1,
+                "dhat": 0.1,
                 "state": 0,
                 "surface_selection": [
                     2,

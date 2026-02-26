@@ -72,13 +72,24 @@
             ]
         },
         "contact": {
-            "barrier_stiffness": 1e4
+            "barrier_stiffness": 10000.0
         },
         "nonlinear": {
-            "grad_norm": 1e-8,
             "line_search": {
-                "use_grad_norm_tol": 1e-7
+                "use_grad_norm_tol": 5e-09
+            },
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 5.0000000000000005e-12,
+            "grad_norm_tol": 5e-10,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
             }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "contact": {
@@ -130,13 +141,13 @@
         {
             "id": 1,
             "type": "NeoHookean",
-            "E": 1e5,
+            "E": 100000.0,
             "nu": 0.3
         },
         {
             "id": 2,
             "type": "NeoHookean",
-            "E": 1e5,
+            "E": 100000.0,
             "nu": 0.3
         }
     ],

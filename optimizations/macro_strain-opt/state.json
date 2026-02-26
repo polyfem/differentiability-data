@@ -3,7 +3,7 @@
         {
             "mesh": "CMM.msh",
             "surface_selection": {
-                "threshold": 1e-5
+                "threshold": 1e-05
             },
             "transformation": {
                 "scale": 1
@@ -27,16 +27,45 @@
             "adjoint_solver": "Eigen::PardisoLDLT"
         },
         "contact": {
-            "barrier_stiffness": 1e4
+            "barrier_stiffness": 10000.0
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-06
+            }
         }
     },
     "boundary_conditions": {
-        "periodic_boundary": [true, true],
-        "linear_displacement_offset": [[-0.04, 0],[0,-0.1]]
+        "periodic_boundary": [
+            true,
+            true
+        ],
+        "linear_displacement_offset": [
+            [
+                -0.04,
+                0
+            ],
+            [
+                0,
+                -0.1
+            ]
+        ]
     },
     "materials": {
         "type": "NeoHookean",
-        "E": 1e4,
+        "E": 10000.0,
         "nu": 0.5,
         "rho": 1
     }

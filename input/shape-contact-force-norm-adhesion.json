@@ -60,23 +60,37 @@
             ]
         },
         "contact": {
-            "barrier_stiffness": 1e4,
+            "barrier_stiffness": 10000.0,
             "friction_iterations": 1
         },
         "nonlinear": {
-            "grad_norm": 1e-9
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 3.3333333333333335e-12,
+            "grad_norm_tol": 3.3333333333333335e-11,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 3.3333333333333334e-08
+            }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "contact": {
         "enabled": true,
         "use_convergent_formulation": true,
         "dhat": 0.01,
-        "friction_coefficient": 0.4000,
+        "friction_coefficient": 0.4,
         "adhesion": {
             "adhesion_enabled": true,
             "dhat_p": 0.01,
             "dhat_a": 0.02,
-            "adhesion_strength": 1e-4,
+            "adhesion_strength": 0.0001,
             "tangential_adhesion_coefficient": 0.1
         }
     },
@@ -115,13 +129,13 @@
         {
             "id": 1,
             "type": "NeoHookean",
-            "E": 1e5,
+            "E": 100000.0,
             "nu": 0.3
         },
         {
             "id": 2,
             "type": "NeoHookean",
-            "E": 1e5,
+            "E": 100000.0,
             "nu": 0.3
         }
     ],

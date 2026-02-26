@@ -6,20 +6,19 @@
             "composition": []
         }
     ],
-    "parameters": [
-
-    ],
+    "parameters": [],
     "functionals": [
         {
             "type": "transient_integral",
             "state": 0,
-            "static_objective": 
-            {
+            "static_objective": {
                 "type": "target",
                 "state": 0,
                 "target_state": 1,
                 "matching": "exact",
-                "surface_selection": [1]
+                "surface_selection": [
+                    1
+                ]
             }
         }
     ],
@@ -30,5 +29,24 @@
         {
             "path": "initial-contact-target.json"
         }
-    ]
+    ],
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-06
+            }
+        }
+    }
 }

@@ -45,18 +45,30 @@
     "solver": {
         "nonlinear": {
             "solver": "MMA",
-            "grad_norm": 0.0255,
             "box_constraints": {
                 "bounds": [
-                    1e-2,
+                    0.01,
                     1
                 ],
                 "max_change": 1
             },
             "line_search": {
-                "method": "None"
+                "method": "None",
+                "use_grad_norm_tol": 1e-06
             },
-            "max_iterations": 21
+            "max_iterations": 21,
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 0.0255,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
+            }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "functionals": [

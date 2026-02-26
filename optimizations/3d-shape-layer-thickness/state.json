@@ -42,14 +42,32 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT", "Eigen::CholmodSupernodalLLT", "Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::CholmodSupernodalLLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "nonlinear": {
-            "grad_norm": 1e-8,
-            "max_iterations": 500
+            "max_iterations": 500,
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1.0000000000000001e-11,
+            "grad_norm_tol": 1e-09,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-07
+            }
         },
         "contact": {
             "barrier_stiffness": 1000.0
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "materials": {

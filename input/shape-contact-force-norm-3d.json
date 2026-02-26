@@ -62,7 +62,7 @@
             ]
         },
         "contact": {
-            "barrier_stiffness": 1e4,
+            "barrier_stiffness": 10000.0,
             "friction_iterations": 1
         },
         "nonlinear": {
@@ -113,13 +113,13 @@
         {
             "id": 1,
             "type": "NeoHookean",
-            "E": 1e5,
+            "E": 100000.0,
             "nu": 0.3
         },
         {
             "id": 2,
             "type": "NeoHookean",
-            "E": 1e5,
+            "E": 100000.0,
             "nu": 0.3
         }
     ],

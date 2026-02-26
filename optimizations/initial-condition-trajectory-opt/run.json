@@ -3,18 +3,25 @@
         {
             "type": "initial",
             "state": 0,
-            "composition": [{
-                "type": "append-values",
-                "values": [0, 0]
-            },{
-                "type": "per-body-to-per-node",
-                "state": 0
-            },{
-                "type": "append-const",
-                "value": 0,
-                "size": 146,
-                "start": 0
-            }]
+            "composition": [
+                {
+                    "type": "append-values",
+                    "values": [
+                        0,
+                        0
+                    ]
+                },
+                {
+                    "type": "per-body-to-per-node",
+                    "state": 0
+                },
+                {
+                    "type": "append-const",
+                    "value": 0,
+                    "size": 146,
+                    "start": 0
+                }
+            ]
         }
     ],
     "output": {
@@ -25,20 +32,35 @@
     "solver": {
         "nonlinear": {
             "line_search": {
-                "method": "Backtracking"
+                "method": "Backtracking",
+                "use_grad_norm_tol": 1e-06
             },
             "solver": "L-BFGS",
             "L-BFGS": {
                 "history_size": 2
             },
             "max_iterations": 5,
-            "grad_norm": 1e-5
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-05,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
+            }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "parameters": [
         {
             "number": 2,
-            "initial": [4, 0]
+            "initial": [
+                4,
+                0
+            ]
         }
     ],
     "functionals": [
@@ -47,12 +69,13 @@
             "state": 0,
             "weight": 10,
             "integral_type": "uniform",
-            "static_objective": 
-            {
+            "static_objective": {
                 "type": "center-target",
                 "state": 0,
                 "target_state": 1,
-                "volume_selection": [1]
+                "volume_selection": [
+                    1
+                ]
             }
         }
     ],

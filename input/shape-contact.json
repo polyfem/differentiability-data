@@ -60,15 +60,30 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "nonlinear": {
             "line_search": {
-                "use_grad_norm_tol": 1e-3
+                "use_grad_norm_tol": 0.001
+            },
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
             }
         },
         "contact": {
             "barrier_stiffness": 20
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "boundary_conditions": {

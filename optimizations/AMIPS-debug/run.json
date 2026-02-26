@@ -12,13 +12,22 @@
         "nonlinear": {
             "solver": "L-BFGS",
             "max_iterations": 50,
-            "grad_norm": 1e-4,
-            "x_delta": 0,
-            "first_grad_norm_tol": 1e-8,
+            "first_grad_norm_tol": 1e-08,
             "line_search": {
                 "use_grad_norm_tol": 0.0,
                 "method": "Backtracking"
+            },
+            "norm_type": "Euclidean",
+            "grad_norm_tol": 0.0001,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
             }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "functionals": [],

@@ -55,10 +55,24 @@
         },
         "nonlinear": {
             "max_iterations": 200,
-            "grad_norm": 1e-3
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 4e-12,
+            "grad_norm_tol": 4e-05,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 4e-08
+            }
         },
         "contact": {
-            "barrier_stiffness": 1e4
+            "barrier_stiffness": 10000.0
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "boundary_conditions": {
@@ -78,7 +92,7 @@
     },
     "materials": {
         "type": "NeoHookean",
-        "E": 1e4,
+        "E": 10000.0,
         "nu": 0.8,
         "rho": 100
     },
@@ -88,7 +102,9 @@
             "high_order_mesh": false,
             "vismesh_rel_area": 1
         },
-        "log": {"level": 3},
+        "log": {
+            "level": 3
+        },
         "advanced": {
             "save_time_sequence": true
         }

@@ -6,13 +6,11 @@
             "composition": []
         }
     ],
-    "parameters": [
-
-    ],
+    "parameters": [],
     "functionals": [
         {
             "type": "stress_norm",
-            "weight": 1e4,
+            "weight": 10000.0,
             "state": 0
         },
         {
@@ -30,6 +28,22 @@
         }
     ],
     "solver": {
-
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-06
+            }
+        }
     }
 }

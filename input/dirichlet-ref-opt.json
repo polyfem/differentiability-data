@@ -1,10 +1,6 @@
 {
-    "variable_to_simulation": [
-
-    ],
-    "parameters": [
-
-    ],
+    "variable_to_simulation": [],
+    "parameters": [],
     "functionals": [
         {
             "type": "target",
@@ -20,5 +16,24 @@
         {
             "path": "dirichlet-ref.json"
         }
-    ]
+    ],
+    "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08,
+            "x_delta_tol": 0,
+            "advanced": {
+                "f_delta_tol": 0,
+                "derivative_along_delta_x_tol": 0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 1e-06
+            }
+        }
+    }
 }

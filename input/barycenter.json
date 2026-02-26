@@ -45,14 +45,31 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "nonlinear": {
-            "grad_norm": 1e-5,
-            "max_iterations": 200
+            "max_iterations": 200,
+            "norm_type": "Euclidean",
+            "first_grad_norm_tol": 2e-12,
+            "grad_norm_tol": 2.0000000000000002e-07,
+            "x_delta_tol": 0.0,
+            "advanced": {
+                "f_delta_tol": 0.0,
+                "derivative_along_delta_x_tol": 0.0
+            },
+            "line_search": {
+                "use_grad_norm_tol": 2e-08
+            }
         },
         "contact": {
-            "barrier_stiffness": 1e5
+            "barrier_stiffness": 100000.0
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "boundary_conditions": {
