@@ -90,7 +90,7 @@
     "contact": {
         "enabled": true,
         "use_convergent_formulation": true,
-        "dhat": 1e-3,
+        "dhat": 0.001,
         "friction_coefficient": 0.5
     },
     "solver": {

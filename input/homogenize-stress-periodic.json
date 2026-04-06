@@ -17,7 +17,7 @@
     "contact": {
         "enabled": true,
         "use_convergent_formulation": true,
-        "dhat": 5e-3,
+        "dhat": 0.005,
         "periodic": true
     },
     "solver": {
