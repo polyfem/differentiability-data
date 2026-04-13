@@ -65,13 +65,9 @@
         },
         "nonlinear": {
             "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
             "first_grad_norm_tol": 3.3333333333333335e-12,
             "grad_norm_tol": 3.3333333333333335e-11,
-            "x_delta_tol": 0.0,
-            "advanced": {
-                "f_delta_tol": 0.0,
-                "derivative_along_delta_x_tol": 0.0
-            },
             "line_search": {
                 "use_grad_norm_tol": 3.3333333333333334e-08
             }

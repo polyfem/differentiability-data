@@ -9,15 +9,8 @@
             "solver": "GradientDescent",
             "max_iterations": 5,
             "norm_type": "Euclidean",
-            "grad_norm_tol": 1e-09,
-            "x_delta_tol": 0,
-            "advanced": {
-                "f_delta_tol": 0,
-                "derivative_along_delta_x_tol": 0
-            },
-            "line_search": {
-                "use_grad_norm_tol": 1e-06
-            }
+            "rel_grad_norm_tol": 0,
+            "grad_norm_tol": 1e-09
         },
         "advanced": {
             "characteristic_force_density": 1,

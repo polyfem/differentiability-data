@@ -18,12 +18,8 @@
                 "method": "Backtracking"
             },
             "norm_type": "Euclidean",
-            "grad_norm_tol": 0.0001,
-            "x_delta_tol": 0,
-            "advanced": {
-                "f_delta_tol": 0,
-                "derivative_along_delta_x_tol": 0
-            }
+            "rel_grad_norm_tol": 0,
+            "grad_norm_tol": 0.0001
         },
         "advanced": {
             "characteristic_force_density": 1,
