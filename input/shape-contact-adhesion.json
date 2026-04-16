@@ -61,20 +61,31 @@
             "adhesion_enabled": true,
             "dhat_p": 0.0005,
             "dhat_a": 0.001,
-            "adhesion_strength": 1e-3
+            "adhesion_strength": 0.001
         }
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "nonlinear": {
             "line_search": {
-                "use_grad_norm_tol": 1e-3
-            }
+                "use_grad_norm_tol": 0.001
+            },
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08
         },
         "contact": {
             "barrier_stiffness": 20
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "boundary_conditions": {

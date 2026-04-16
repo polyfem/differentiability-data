@@ -1,10 +1,14 @@
 {
-    "geometry": [{
+    "geometry": [
+        {
             "mesh": "wave.msh",
             "is_obstacle": true,
             "transformation": {
                 "rotation": 30,
-                "scale": [6, 3]
+                "scale": [
+                    6,
+                    3
+                ]
             },
             "volume_selection": 3,
             "surface_selection": 3
@@ -12,7 +16,10 @@
         {
             "mesh": "micro.msh",
             "transformation": {
-                "translation": [1, 1],
+                "translation": [
+                    1,
+                    1
+                ],
                 "rotation": 30,
                 "scale": 0.005
             },
@@ -41,10 +48,26 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT", "Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "contact": {
-            "barrier_stiffness": 1e4
+            "barrier_stiffness": 10000.0
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 4e-12,
+            "grad_norm_tol": 4e-10,
+            "line_search": {
+                "use_grad_norm_tol": 4e-08
+            }
         }
     },
     "boundary_conditions": {
@@ -52,17 +75,19 @@
             0,
             9.8
         ],
-        "dirichlet_boundary": [{
-            "id": 3,
-            "value": [
-                0,
-                0
-            ]
-        }]
+        "dirichlet_boundary": [
+            {
+                "id": 3,
+                "value": [
+                    0,
+                    0
+                ]
+            }
+        ]
     },
     "materials": {
         "type": "NeoHookean",
-        "E": 1e5,
+        "E": 100000.0,
         "nu": 0.5,
         "rho": 100,
         "phi": 0.01,

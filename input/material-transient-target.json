@@ -47,19 +47,31 @@
     "contact": {
         "enabled": true,
         "use_convergent_formulation": true,
-        "dhat": 1e-2,
+        "dhat": 0.01,
         "friction_coefficient": 0.2
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "nonlinear": {
-            "grad_norm": 3e-6,
-            "max_iterations": 100
+            "max_iterations": 100,
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "grad_norm_tol": 3.0000000000000004e-08,
+            "line_search": {
+                "use_grad_norm_tol": 1e-08
+            }
         },
         "contact": {
-            "barrier_stiffness": 1e5
+            "barrier_stiffness": 100000.0
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "boundary_conditions": {
@@ -90,7 +102,7 @@
     },
     "materials": {
         "type": "NeoHookean",
-        "E": 1e5,
+        "E": 100000.0,
         "nu": 0.3,
         "rho": 1000,
         "phi": 10,

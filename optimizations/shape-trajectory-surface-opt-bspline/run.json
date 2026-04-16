@@ -25,24 +25,29 @@
             "export_energy": "shape-trajectory-surface-opt-bspline",
             "solver": "L-BFGS",
             "better_initial_guess": true,
-            "min_step_size": 1e-8,
+            "min_step_size": 1e-08,
             "max_step_size": 1,
             "max_iterations": 4,
-            "grad_norm": 1e-4,
             "debug_fd": true,
-            "debug_fd_eps": 1e-7,
-            "x_delta": 0,
+            "debug_fd_eps": 1e-07,
             "export_energy_components": false,
             "solver_info_log": true,
             "relative_gradient": false,
-            "first_grad_norm_tol": 1e-8,
+            "first_grad_norm_tol": 1e-08,
             "line_search": {
                 "use_grad_norm_tol": 0.0,
                 "method": "Backtracking"
-            }
+            },
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "grad_norm_tol": 0.0001
         },
         "contact": {
             "enabled": false
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "states": [

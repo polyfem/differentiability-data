@@ -62,11 +62,21 @@
             ]
         },
         "contact": {
-            "barrier_stiffness": 1e4,
+            "barrier_stiffness": 10000.0,
             "friction_iterations": 1
         },
         "nonlinear": {
-            "grad_norm": 1e-12
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-11,
+            "grad_norm_tol": 9.999999999999999e-14,
+            "line_search": {
+                "use_grad_norm_tol": 9.999999999999998e-08
+            }
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "contact": {
@@ -113,13 +123,13 @@
         {
             "id": 1,
             "type": "NeoHookean",
-            "E": 1e5,
+            "E": 100000.0,
             "nu": 0.3
         },
         {
             "id": 2,
             "type": "NeoHookean",
-            "E": 1e5,
+            "E": 100000.0,
             "nu": 0.3
         }
     ],

@@ -1,20 +1,23 @@
 {
-    "geometry": [{
-        "mesh": "../bar-2523.msh",
-        "volume_selection": 1,
-        "n_refs": 0,
-        "surface_selection": [{
-                "id": 1,
-                "axis": "-x",
-                "position": 2.5
-            },
-            {
-                "id": 2,
-                "axis": "+x",
-                "position": 2.5
-            }
-        ]
-    }],
+    "geometry": [
+        {
+            "mesh": "../bar-2523.msh",
+            "volume_selection": 1,
+            "n_refs": 0,
+            "surface_selection": [
+                {
+                    "id": 1,
+                    "axis": "-x",
+                    "position": 2.5
+                },
+                {
+                    "id": 2,
+                    "axis": "+x",
+                    "position": 2.5
+                }
+            ]
+        }
+    ],
     "space": {
         "discr_order": 1,
         "advanced": {
@@ -23,7 +26,20 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT", "Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08
         }
     },
     "boundary_conditions": {
@@ -32,18 +48,20 @@
             9.81,
             0
         ],
-        "dirichlet_boundary": [{
-            "id": 1,
-            "value": [
-                0,
-                0,
-                0
-            ]
-        }]
+        "dirichlet_boundary": [
+            {
+                "id": 1,
+                "value": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ]
     },
     "materials": {
         "type": "NeoHookean",
-        "E": 1e8,
+        "E": 100000000.0,
         "nu": 0.47,
         "rho": 1000
     },

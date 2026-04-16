@@ -59,15 +59,24 @@
     },
     "solver": {
         "linear": {
-            "solver": ["Eigen::PardisoLDLT","Eigen::SimplicialLDLT"]
+            "solver": [
+                "Eigen::PardisoLDLT",
+                "Eigen::SimplicialLDLT"
+            ]
         },
         "nonlinear": {
             "line_search": {
-                "use_grad_norm_tol": 1e-3
-            }
+                "use_grad_norm_tol": 1e-05
+            },
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0
         },
         "contact": {
             "barrier_stiffness": 100000.0
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "boundary_conditions": {

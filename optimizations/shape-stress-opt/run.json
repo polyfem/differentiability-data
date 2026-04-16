@@ -28,15 +28,21 @@
         "nonlinear": {
             "solver": "L-BFGS",
             "max_iterations": 9,
-            "grad_norm": 1e-4,
-            "x_delta": 0
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 0.0001
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "functionals": [
         {
             "type": "power",
             "power": 0.125,
-            "weight": 1e-3,
+            "weight": 0.001,
             "objective": {
                 "type": "stress_norm",
                 "power": 8,
@@ -58,12 +64,12 @@
             "weight": 10,
             "soft_bound": [
                 0,
-                2.36226e-1
+                0.236226
             ]
         },
         {
             "type": "boundary_smoothing",
-            "weight": 1e-3,
+            "weight": 0.001,
             "state": 0,
             "scale_invariant": true,
             "power": 4,
@@ -71,7 +77,7 @@
         },
         {
             "type": "AMIPS",
-            "weight": 1e-6,
+            "weight": 1e-06,
             "state": 0,
             "volume_selection": [
                 1

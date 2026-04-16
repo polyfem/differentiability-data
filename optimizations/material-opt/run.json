@@ -8,7 +8,13 @@
             "first_grad_norm_tol": 1e-10,
             "solver": "GradientDescent",
             "max_iterations": 5,
-            "grad_norm": 1e-9
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "grad_norm_tol": 1e-09
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
         }
     },
     "states": [
@@ -36,7 +42,10 @@
     ],
     "parameters": [
         {
-            "initial": [10.0088, 7.92941],
+            "initial": [
+                10.0088,
+                7.92941
+            ],
             "number": 2
         }
     ],

@@ -19,6 +19,16 @@
     "solver": {
         "linear": {
             "solver": "Eigen::SimplicialLDLT"
+        },
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
+        "nonlinear": {
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0,
+            "first_grad_norm_tol": 1e-10,
+            "grad_norm_tol": 1e-08
         }
     },
     "boundary_conditions": {
@@ -30,7 +40,7 @@
         {
             "id": 1,
             "type": "NeoHookean",
-            "E": 7.3e5,
+            "E": 730000.0,
             "nu": 0.47,
             "rho": 1000
         }
