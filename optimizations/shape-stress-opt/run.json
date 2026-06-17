@@ -2,24 +2,12 @@
     "variable_to_simulation": [
         {
             "type": "shape",
-            "composite_map_type": "indices",
-            "composite_map_indices": "opt-dof.txt",
             "state": 0,
-            "composition": [
-                {
-                    "type": "slice",
-                    "from": 0,
-                    "to": 37038,
-                    "last": 37038
-                }
-            ]
+            "composition": [],
+            "active_geometry_nodes": "opt-nodes.txt"
         }
     ],
-    "parameters": [
-        {
-            "number": 37038
-        }
-    ],
+    "parameters": "auto",
     "output": {
         "save_frequency": 5,
         "solve_log_level": 2

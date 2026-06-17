@@ -3,11 +3,13 @@
         {
             "type": "shape",
             "state": 0,
-            "composite_map_type": "boundary",
-            "surface_selection": [
-                3,
-                4
-            ],
+            "active_geometry_nodes": {
+                "type": "boundary",
+                "selection": [
+                    3,
+                    4
+                ]
+            },
             "composition": [
                 {
                     "type": "slice",

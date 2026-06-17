@@ -2,8 +2,7 @@
     "variable_to_simulation": [
         {
             "type": "pressure",
-            "composite_map_type": "time_step_indexing",
-            "surface_selection": [
+            "active_boundary_ids": [
                 2
             ],
             "state": 0,
@@ -16,8 +15,7 @@
         },
         {
             "type": "pressure",
-            "composite_map_type": "time_step_indexing",
-            "surface_selection": [
+            "active_boundary_ids": [
                 3
             ],
             "state": 0,

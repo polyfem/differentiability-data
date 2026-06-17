@@ -4,22 +4,15 @@
             "type": "shape",
             "state": 0,
             "composition": [],
-            "composite_map_type": "boundary",
-            "surface_selection": [
-                2
-            ]
-        }
-    ],
-    "parameters": [
-        {
-            "number": {
-                "surface_selection": [
+            "active_geometry_nodes": {
+                "type": "boundary",
+                "selection": [
                     2
-                ],
-                "state": 0
+                ]
             }
         }
     ],
+    "parameters": "auto",
     "functionals": [
         {
             "type": "transient_integral",

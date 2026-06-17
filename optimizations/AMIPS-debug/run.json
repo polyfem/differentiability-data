@@ -1,6 +1,26 @@
 {
-    "variable_to_simulation": [],
-    "parameters": [],
+    "variable_to_simulation": [
+        {
+            "type": "shape",
+            "state": 0,
+            "composition": [],
+            "active_geometry_nodes": {
+                "type": "boundary_excluding_surface",
+                "selection": [
+                    1
+                ]
+            }
+        }
+    ],
+    "parameters": [
+        {
+            "number": 2,
+            "initial": [
+                0.0,
+                1.0
+            ]
+        }
+    ],
     "output": {
         "save_frequency": 1,
         "solve_log_level": 3
@@ -26,7 +46,13 @@
             "characteristic_length": 1
         }
     },
-    "functionals": [],
+    "functionals": [
+        {
+            "type": "AMIPS",
+            "state": 0,
+            "weight": 1.0
+        }
+    ],
     "states": [
         {
             "path": "state.json"

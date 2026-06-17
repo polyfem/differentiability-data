@@ -2,10 +2,12 @@
     "variable_to_simulation": [
         {
             "type": "shape",
-            "composite_map_type": "boundary",
-            "surface_selection": [
-                2
-            ],
+            "active_geometry_nodes": {
+                "type": "boundary",
+                "selection": [
+                    2
+                ]
+            },
             "state": 0,
             "composition": [
                 {
@@ -16,10 +18,12 @@
         },
         {
             "type": "shape",
-            "composite_map_type": "boundary",
-            "surface_selection": [
-                3
-            ],
+            "active_geometry_nodes": {
+                "type": "boundary",
+                "selection": [
+                    3
+                ]
+            },
             "state": 0,
             "composition": [
                 {

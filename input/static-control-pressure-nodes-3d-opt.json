@@ -3,11 +3,10 @@
         {
             "type": "pressure",
             "state": 0,
-            "surface_selection": [],
             "composition": []
         }
     ],
-    "parameters": [],
+    "parameters": "auto",
     "functionals": [
         {
             "type": "sdf-target",

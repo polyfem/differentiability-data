@@ -1,12 +1,11 @@
 {
     "variable_to_simulation": [
         {
-            "type": "dirichlet",
+            "type": "dirichlet-boundary",
             "state": 0,
-            "surface_selection": [
+            "active_boundary_ids": [
                 1
             ],
-            "composite_map_type": "time_step_indexing",
             "composition": [
                 {
                     "type": "slice",
@@ -15,12 +14,11 @@
             ]
         },
         {
-            "type": "dirichlet",
+            "type": "dirichlet-boundary",
             "state": 0,
-            "surface_selection": [
+            "active_boundary_ids": [
                 2
             ],
-            "composite_map_type": "time_step_indexing",
             "composition": [
                 {
                     "type": "slice",
@@ -29,12 +27,11 @@
             ]
         },
         {
-            "type": "dirichlet",
+            "type": "dirichlet-boundary",
             "state": 0,
-            "surface_selection": [
+            "active_boundary_ids": [
                 3
             ],
-            "composite_map_type": "time_step_indexing",
             "composition": [
                 {
                     "type": "slice",
@@ -104,17 +101,5 @@
         {
             "path": "dirichlet-sdf.json"
         }
-    ],
-    "solver": {
-        "advanced": {
-            "characteristic_force_density": 1,
-            "characteristic_length": 1
-        },
-        "nonlinear": {
-            "norm_type": "Euclidean",
-            "rel_grad_norm_tol": 0,
-            "first_grad_norm_tol": 1e-10,
-            "grad_norm_tol": 1e-08
-        }
-    }
+    ]
 }

@@ -6,11 +6,11 @@
             "composition": []
         }
     ],
-    "parameters": [],
+    "parameters": "auto",
     "functionals": [
         {
             "type": "stress_norm",
-            "weight": 10000.0,
+            "weight": 1e4,
             "state": 0
         },
         {
@@ -23,20 +23,10 @@
     ],
     "states": [
         {
-            "path": "laplacian.json",
-            "id": 0
+            "path": "laplacian.json"
         }
     ],
     "solver": {
-        "advanced": {
-            "characteristic_force_density": 1,
-            "characteristic_length": 1
-        },
-        "nonlinear": {
-            "norm_type": "Euclidean",
-            "rel_grad_norm_tol": 0,
-            "first_grad_norm_tol": 1e-10,
-            "grad_norm_tol": 1e-08
-        }
+
     }
 }

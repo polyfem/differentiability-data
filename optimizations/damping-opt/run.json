@@ -1,25 +1,20 @@
 {
-    "output": {
-        "save_frequency": 100,
-        "solve_log_level": 3
-    },
+    "variable_to_simulation": [
+        {
+            "type": "damping",
+            "state": 0,
+            "composition": []
+        }
+    ],
     "solver": {
         "nonlinear": {
-            "first_grad_norm_tol": 1e-06,
+            "first_grad_norm_tol": 1e-6,
             "solver": "L-BFGS",
-            "min_step_size": 1e-05,
-            "max_step_size": 1,
-            "debug_fd": false,
-            "debug_fd_eps": 1e-07,
             "max_iterations": 5,
-            "export_energy": "damping-opt",
-            "norm_type": "Euclidean",
-            "rel_grad_norm_tol": 0,
-            "grad_norm_tol": 1e-09
-        },
-        "advanced": {
-            "characteristic_force_density": 1,
-            "characteristic_length": 1
+            "grad_norm_tol": 1e-9,
+            "line_search": {
+                "min_step_size": 1e-5
+            }
         }
     },
     "states": [
@@ -30,29 +25,18 @@
             "path": "target.json"
         }
     ],
-    "parameters": [
-        {
-            "type": "damping",
-            "states": [
-                0
-            ],
-            "phi_bound": [
-                0,
-                2
-            ],
-            "psi_bound": [
-                0,
-                2
-            ]
-        }
-    ],
+    "parameters": "auto",
     "functionals": [
         {
-            "type": "trajectory",
-            "matching": "exact",
             "state": 0,
-            "target_state": 1,
-            "weight": 1
+            "type": "transient_integral",
+            "integral_type": "uniform",
+            "static_objective": {
+                "type": "target",
+                "state": 0,
+                "target_state": 1,
+                "matching": "exact"
+            }
         }
     ]
 }
