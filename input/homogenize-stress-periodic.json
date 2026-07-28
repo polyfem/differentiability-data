@@ -22,16 +22,10 @@
     },
     "solver": {
         "linear": {
-            "solver": [
-                "Eigen::PardisoLLT",
-                "Eigen::CholmodSupernodalLLT"
-            ]
+            "solver": "Eigen::CholmodSimplicialLDLT"
         },
         "adjoint_linear": {
-            "solver": [
-                "Eigen::PardisoLDLT",
-                "Eigen::SimplicialLDLT"
-            ]
+            "solver": "Eigen::CholmodSimplicialLDLT"
         },
         "nonlinear": {
             "norm_type": "Euclidean",
@@ -64,7 +58,6 @@
         ]
     },
     "constraints": {
-        "zero_mean": true,
         "macro_displacement_gradient": {
             "value": [
                 [
