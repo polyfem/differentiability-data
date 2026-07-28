@@ -21,10 +21,10 @@
     },
     "solver": {
         "linear": {
-            "solver": "Eigen::CholmodSimplicialLDLT"
+            "solver": "Eigen::SPQR"
         },
         "adjoint_linear": {
-            "solver": "Eigen::CholmodSimplicialLDLT"
+            "solver": "Eigen::SPQR"
         },
         "nonlinear": {
             "norm_type": "Euclidean",
