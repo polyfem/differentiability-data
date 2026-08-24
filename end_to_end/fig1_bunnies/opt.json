@@ -28,8 +28,8 @@
         "max_threads": 16,
         "nonlinear": {
             "line_search": {
-                "min_step_size": 1,
-                "method": "None"
+                "min_step_size": 1e-8,
+                "method": "Armijo"
             },
             "solver": "L-BFGS-B",
             "box_constraints": {
