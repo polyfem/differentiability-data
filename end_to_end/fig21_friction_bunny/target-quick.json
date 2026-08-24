@@ -7,7 +7,7 @@
             "surface_selection": 3
         },
         {
-            "mesh": "stanford-bunny.obj_.msh",
+            "mesh": "stanford-bunny-coarse.msh",
             "transformation": {
                 "translation": [0.5, -0.13, -0.7],
                 "rotation": [0, 0, 0],
@@ -31,7 +31,7 @@
     "contact": {
         "enabled": true,
         "use_convergent_formulation": true,
-        "friction_coefficient": 0.5
+        "friction_coefficient": 0.1
     },
     "solver": {
         "linear": {
@@ -83,17 +83,13 @@
         "rho": 1000
     },
     "output": {
+        "directory": "output-quick/state_1",
         "paraview": {
-            "file_name": "sim.pvd",
             "high_order_mesh": false,
             "surface": true,
             "volume": false,
             "vismesh_rel_area": 1
         },
-        "advanced": {
-            "save_time_sequence": true
-        },
-        "directory": "output/state_0",
         "log": {
             "level": "info"
         }

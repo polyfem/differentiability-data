@@ -28,7 +28,7 @@
         }
     },
     "output": {
-        "directory": "output",
+        "directory": "output-quick",
         "log": {
             "level": "info"
         }
@@ -56,10 +56,10 @@
     ],
     "states": [
         {
-            "path": "run-new.json"
+            "path": "run-new-quick.json"
         },
         {
-            "path": "target.json"
+            "path": "target-quick.json"
         }
     ]
 }

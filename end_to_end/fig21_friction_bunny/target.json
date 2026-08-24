@@ -38,10 +38,14 @@
             "solver": ["Eigen::PardisoLDLT", "Eigen::AccelerateLDLT", "Eigen::SimplicialLDLT"]
         },
         "nonlinear": {
+            "norm_type": "L2",
+            "rel_grad_norm_tol": 1e-6,
+            "first_grad_norm_tol": 4e-12,
+            "grad_norm_tol": 4e-10,
             "line_search": {
-                "method": "Backtracking"
-            },
-            "grad_norm_tol": 1e-3
+                "use_grad_norm_tol": 4e-8,
+                "method": "RobustArmijo"
+            }
         },
         "contact": {
             "barrier_stiffness": 1e4
