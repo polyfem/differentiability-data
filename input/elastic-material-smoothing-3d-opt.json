@@ -1,0 +1,43 @@
+{
+    "states": [
+        {
+            "path": "elastic-material-smoothing-3d.json"
+        }
+    ],
+    "parameters": [
+        {
+            "number": 6,
+            "initial": [
+                1.0,
+                1.2,
+                1.4,
+                1.6,
+                1.8,
+                2.0
+            ]
+        }
+    ],
+    "variable_to_simulation": [
+        {
+            "type": "elastic",
+            "state": 0,
+            "composition": [
+                {
+                    "type": "append-const",
+                    "size": 6,
+                    "value": 0.3
+                },
+                {
+                    "type": "E-nu-to-lambda-mu",
+                    "is_volume": true
+                }
+            ]
+        }
+    ],
+    "functionals": [
+        {
+            "type": "elastic_material_smoothing",
+            "state": 0
+        }
+    ]
+}
