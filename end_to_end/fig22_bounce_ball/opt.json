@@ -17,7 +17,8 @@
             },
             "solver": "L-BFGS",
             "max_iterations": 100,
-            "grad_norm_tol": 1e-4
+            "grad_norm_tol": 1e-2,
+            "norm_type": "Euclidean"
         }
     },
     "output": {
@@ -44,6 +45,11 @@
                 "dim": 1,
                 "volume_selection": [2]
             }
+        },
+        {
+            "type": "elastic_material_smoothing",
+            "state": 0,
+            "weight": 1.0
         }
     ],
     "states": [

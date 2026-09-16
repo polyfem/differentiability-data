@@ -62,11 +62,17 @@
         "friction_coefficient": 0
     },
     "solver": {
+        "advanced": {
+            "characteristic_force_density": 1,
+            "characteristic_length": 1
+        },
         "linear": {
             "solver": ["Eigen::PardisoLDLT", "Eigen::AccelerateLDLT", "Eigen::SimplicialLDLT"]
         },
         "nonlinear": {
-            "grad_norm_tol": 1e-3
+            "grad_norm_tol": 1e-5,
+            "norm_type": "Euclidean",
+            "rel_grad_norm_tol": 0
         },
         "contact": {
             "barrier_stiffness": 10000.0
@@ -115,6 +121,9 @@
         }
     ],
     "output": {
+        "advanced": {
+            "save_time_sequence": false
+        },
         "paraview": {
             "high_order_mesh": false,
             "surface": true,
