@@ -1,0 +1,86 @@
+{
+    "parameters": "auto",
+    "variable_to_simulation": [
+        {
+            "type": "shape",
+            "state": 0,
+            "active_geometry_nodes": {
+                "type": "boundary_excluding_surface",
+                "selection": [10, 11, 12]
+            },
+            "composition": [
+            ]
+        }
+    ],
+    "output": {
+        "directory": "output",
+        "log": {
+            "level": "info"
+        }
+    },
+    "solver": {
+        "max_threads": 16,
+        "nonlinear": {
+            "line_search": {
+                "method": "Backtracking"
+            },
+            "solver": "L-BFGS",
+            "max_iterations": 400,
+            "grad_norm_tol": 1e-4,
+            "advanced": {
+                "apply_gradient_fd": "None"
+            }
+        },
+        "advanced": {
+            "enable_slim": true,
+            "smooth_line_search": true
+        }
+    },
+    "functionals": [
+        {
+            "type": "power",
+            "power": 0.125,
+            "weight": 1,
+            "print_energy": "stress",
+            "objective": {
+                "type": "stress_norm",
+                "state": 0,
+                "power": 8
+            }
+        },
+        {
+            "type": "soft_constraint",
+            "weight": 1e4,
+            "soft_bound": [0, 0.49826989619377166],
+            "objective": {
+                "type": "volume",
+                "state": 0,
+                "print_energy": "volume"
+            }
+        },
+        {
+            "type": "boundary_smoothing",
+            "weight": 20,
+            "power": 4,
+            "state": 0,
+            "print_energy": "smoothing",
+            "surface_selection": [0],
+            "scale_invariant": false
+        }
+    ],
+    "remeshing": {
+        "state": 0,
+        "geometry": 1,
+        "max_restarts": 1,
+        "trigger": {
+            "scaled_jacobian": {
+                "quality_threshold": 0.01
+            }
+        }
+    },
+    "states": [
+        {
+            "path": "run.json"
+        }
+    ]
+}
